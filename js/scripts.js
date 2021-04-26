@@ -12,5 +12,5 @@ let pokemonList = [{
         name: "Nidoran",
         type: ['poison'],
         height: 4
-    }
-];
+    ]
+};
