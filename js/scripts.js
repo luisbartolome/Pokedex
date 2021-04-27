@@ -1,16 +1,16 @@
 let pokemonList = [{
         name: "Wartortle",
-        types: ['water'],
+        type: 'water',
         height: 1
     },
     {
         name: "Charmander",
-        types: ['fire'],
+        type: 'fire',
         height: 6
     },
     {
         name: "Nidoran",
-        types: ['poison'],
+        type: 'poison',
         height: 4
     }
 ];
