@@ -14,3 +14,9 @@ let pokemonList = [{
         height: 4
     }
 ];
+
+var pokemon = ["Wartortle", "Charmander", "Nidoran"]
+
+for (i = 0; pokemon.lengt; i++) {
+    document.write(pokemon);
+}
