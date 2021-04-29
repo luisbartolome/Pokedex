@@ -4,7 +4,7 @@ let pokemonList = [{
         height: 1
     },
     {
-        name: "Charmander"
+        name: "Charmander",
         type: 'fire',
         height: 6
     },
