@@ -1,0 +1,20 @@
+body {
+    background-color: #9b3535;
+    color: #0c0c0c;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.6;
+}
+
+
+/* get rid of bullet-point */
+
+ul.pokemon-list {
+    list-style-type: none;
+}
+
+span {
+    font-weight: bold;
+}
