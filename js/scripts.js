@@ -27,16 +27,22 @@ for (let i = 0; i < pokemonList.length; i++) {
 // The conditional check if the height is above a certain value
 //using <b> tag to bold part of a tring display on page
 
-let i = 1;
+// List all pokemons, emphasis on height
 
-if (pokemonList[i].height > 5) {
+for (let i = 0; i < pokemonList.length; i++) {
+    if (pokemonList[i].height > 1) {
+        document.write(
+            pokemonList[i].name + "'s height is " + pokemonList[i].height + "m" + " - big pokemon" + "<br>")
+    } else {
+        document.write(
+            pokemonList[i].name + "'s height is " + pokemonList[i].height + "m" + " - small pokemon" + "<br>")
+    }
+};
 
-    document.write('<b>- Wow, that\'s big!.</b>');
-
-    document.write('<ul>');
-    document.write('<li><br>');
-    document.write('</li><br>');
-    document.write('</ul>');
+document.write('<ul>');
+document.write('<li><br>');
+document.write('</li><br>');
+document.write('</ul>');
 
 
 };
