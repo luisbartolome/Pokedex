@@ -22,10 +22,10 @@ document.write('<ul class="pokemon-list">');
 for (let i = 0; i < pokemonList.length; i++) {
     document.write('<li class="pokemon-list__item"><b>' + pokemonList[i].name + '</b> (height: ' + pokemonList[i].height + ')');
     if (pokemonList[i].height > 1) {
-        document.write(" - big pokemon" + "<br>")
+        document.write(" - big pokemon");
     } else {
-        document.write(
-            " - small pokemon" + "<br>")
+        document.write(" - small pokemon");
     }
+    document.write("</li>")
 };
 document.write('</ul>');
