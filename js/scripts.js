@@ -43,6 +43,3 @@ document.write('<ul>');
 document.write('<li><br>');
 document.write('</li><br>');
 document.write('</ul>');
-
-
-};
