@@ -16,15 +16,10 @@ let pokemonRepository = (function() {
         }
     ];
 
-
-    // add the Pokémon referred to with item to the pokemonList array +  datatype check
+    // adding pokemons to the repository
 
     function add(pokemon) {
-        if (typeof pokemon === 'object' && typeof pokemon !== null) {
-            pokemonList.push(pokemon);
-        } else {
-            alert('type of parameter is not an object');
-        }
+        return typeof pokemon === 'object' ? pokemonList.push(pokemon) : 'error';
     }
 
     //return the pokemonList array
@@ -40,6 +35,7 @@ let pokemonRepository = (function() {
 })();
 
 //add the correct type of data to pokemonList array
+
 pokemonRepository.add({
     name: 'Voltorb',
     height: 0.5,
@@ -51,11 +47,19 @@ document.write('<ul class="pokemon-list">');
 //move the function declaration passed to forEach() to make things clearer
 function myLoopFunction(pokemon) {
     document.write('<li class="pokemon-list__item"><b>' + pokemon.name + '</b> (height: ' + pokemon.height + ')' + "<br>" + pokemon.types);
+    for (let i = 0; i < pokemonList.length; i++) {
+        document.write('<li class="pokemon-list__item"><b>' + pokemonList[i].name + '</b> (height: ' + pokemonList[i].height + ')');
+        if (pokemonList[i].height > 1) {
+            document.write(" - big pokemon");
+        } else {
+            document.write(" - small pokemon");
+        }
+        document.write('</li><br>');
+    };
 
-    document.write('</li><br>');
-};
 
-//forEach Loop iterates each pokemon name and height.
-pokemonRepository.getAll().forEach(myLoopFunction);
 
-document.write('<ul>');
+    //forEach Loop iterates each pokemon name and height.
+    pokemonRepository.getAll().forEach(myLoopFunction);
+
+    document.write('<ul>');
