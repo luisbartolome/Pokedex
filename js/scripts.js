@@ -55,6 +55,11 @@ function myLoopFunction(pokemon) {
     document.write('</li><br>');
 };
 
+function filterType(value) {
+    const response = pokemonRepository.getAll().filter(p => p.types[0] == value)
+    console.log(response, 'type:', value);
+}
+
 //forEach Loop iterates each pokemon name and height.
 pokemonRepository.getAll().forEach(myLoopFunction);
 
