@@ -47,19 +47,15 @@ document.write('<ul class="pokemon-list">');
 //move the function declaration passed to forEach() to make things clearer
 function myLoopFunction(pokemon) {
     document.write('<li class="pokemon-list__item"><b>' + pokemon.name + '</b> (height: ' + pokemon.height + ')' + "<br>" + pokemon.types);
-    for (let i = 0; i < pokemonList.length; i++) {
-        document.write('<li class="pokemon-list__item"><b>' + pokemonList[i].name + '</b> (height: ' + pokemonList[i].height + ')');
-        if (pokemonList[i].height > 1) {
-            document.write(" - big pokemon");
-        } else {
-            document.write(" - small pokemon");
-        }
-        document.write('</li><br>');
-    };
+    if (pokemon.height > 1) {
+        document.write(" - big pokemon");
+    } else {
+        document.write(" - small pokemon");
+    }
+    document.write('</li><br>');
+};
 
+//forEach Loop iterates each pokemon name and height.
+pokemonRepository.getAll().forEach(myLoopFunction);
 
-
-    //forEach Loop iterates each pokemon name and height.
-    pokemonRepository.getAll().forEach(myLoopFunction);
-
-    document.write('<ul>');
+document.write('<ul>');
