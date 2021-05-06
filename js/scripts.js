@@ -78,4 +78,7 @@ pokemonRepository.add({
     types: ['electric']
 });
 
-document.write('<ul class="pokemon-list">');
+//forEach Loop iterates each pokemon name in a button in an unorderd list
+pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
+});
