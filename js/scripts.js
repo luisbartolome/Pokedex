@@ -17,7 +17,7 @@ let pokemonRepository = (function() {
     ];
 
     //move the function declaration passed to forEach() to make things clearer
-    function myLoopFunction(pokemon) {
+    function add(pokemon) {
         document.write('<li class="pokemon-list__item"><b>' + pokemon.name + '</b> (height: ' + pokemon.height + ')' + "<br>" + pokemon.types);
         if (pokemon.height > 1) {
             document.write(" - big pokemon");
