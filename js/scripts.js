@@ -55,10 +55,13 @@ let pokemonRepository = (function() {
     }
 
     //execute the details of clicked pokemon on console
+
     function showDetails(pokemon) {
-        console.log(pokemon);
-        document.write(addEventListener);
+        loadDetails(pokemon).then(function() {
+            console.log(pokemon);
+        });
     }
+
 
     return {
         getAll: getAll,
