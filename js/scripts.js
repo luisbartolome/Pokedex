@@ -22,67 +22,44 @@ let pokemonRepository = (function() {
         return typeof pokemon === 'object' ? pokemonList.push(pokemon) : 'error';
     }
 
-    //return the pokemonList array
+    //return the repository array
     function getAll() {
-        return pokemonList;
+        return repository;
+    }
+
+    //creating lists and button in the DOM
+    function addListItem(pokemon) {
+        let pokemonList = document.querySelector('.pokemon-list');
+        let listItem = document.createElement('li');
+
+        //pokemon names on the buttons
+        let button = document.createElement('button');
+        button.innerText = pokemon.name;
+        button.classList.add('button-class');
+        //Event listener on click
+        button.addEventListener('click', function(event) {
+            showDetails(pokemon);
+        });
+
+        //append the butten und the list to thier parents
+        listItem.appendChild(button);
+        pokemonList.appendChild(listItem);
+
+    }
+
+    //execute the details of clicked pokemon on console
+    function showDetails(pokemon) {
+        console.log(pokemon);
     }
 
     return {
         getAll: getAll,
-        add: add
+        add: add,
+        addListItem: addListItem,
+        showDetails: showDetails,
     };
 
 })();
-
-// Add buttons and Style + Event listener
-
-function addListItem(pokemon) {
-    let pokemonList = document.querySelector('.pokemon-list');
-    let listItem = document.createElement('li');
-
-    //pokemon names on the buttons
-    let button = document.createElement('button');
-    button.innerText = pokemon.name;
-    button.classList.add('button-class');
-    //Event listener on click
-    button.addEventListener('click', function(event) {
-        showDetails(pokemon);
-    });
-
-    //append the butten und the list to thier parents
-    listItem.appendChild(button);
-    pokemonList.appendChild(listItem);
-
-}
-
-//execute the details of clicked pokemon on console
-function showDetails(pokemon) {
-    console.log(pokemon);
-}
-
-
-return {
-    getAll: getAll,
-    add: add,
-    addListItem: addListItem,
-    showDetails: showDetails,
-};
-
-
-// showDetails function
-
-function showDetails(pokemon) {
-    console.log(pokemon);
-}
-
-// key variable to access the IIEF
-
-return {
-    add: add,
-    getAll: getAll,
-    addListItem: addListItem
-};
-
 //add the correct type of data to pokemonList array
 
 pokemonRepository.add({
