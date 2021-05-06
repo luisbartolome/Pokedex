@@ -30,7 +30,7 @@ let pokemonRepository = (function() {
 
     //return the repository array
     function getAll() {
-        return repository;
+        return pokemonList;
     }
 
     //creating lists and button in the DOM
