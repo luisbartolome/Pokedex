@@ -57,7 +57,7 @@ let pokemonRepository = (function() {
     //execute the details of clicked pokemon on console
     function showDetails(pokemon) {
         console.log(pokemon);
-        document.write(pokemon);
+        document.write(pokemonList);
     }
 
     return {
