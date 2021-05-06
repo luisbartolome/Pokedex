@@ -56,7 +56,7 @@ let pokemonRepository = (function() {
 
     //execute the details of clicked pokemon on console
     function showDetails(pokemon) {
-        console.log(pokemon, button.innerText);
+        console.log(pokemon);
     }
 
     return {
