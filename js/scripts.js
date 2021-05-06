@@ -16,17 +16,21 @@ let pokemonRepository = (function() {
         }
     ];
 
-    // adding pokemons to the repository
-
-    function add(pokemon) {
-        return typeof pokemon === 'object' ? pokemonList.push(pokemon) : 'error';
-    }
+    //move the function declaration passed to forEach() to make things clearer
+    function myLoopFunction(pokemon) {
+        document.write('<li class="pokemon-list__item"><b>' + pokemon.name + '</b> (height: ' + pokemon.height + ')' + "<br>" + pokemon.types);
+        if (pokemon.height > 1) {
+            document.write(" - big pokemon");
+        } else {
+            document.write(" - small pokemon");
+        }
+        document.write('</li><br>');
+    };
 
     //return the repository array
     function getAll() {
         return repository;
     }
-
     //creating lists and button in the DOM
     function addListItem(pokemon) {
         let pokemonList = document.querySelector('.pokemon-list');
@@ -60,6 +64,12 @@ let pokemonRepository = (function() {
     };
 
 })();
+
+function filterType(value) {
+    const response = pokemonRepository.getAll().filter(p => p.types[0] == value)
+    console.log(response, 'type:', value);
+}
+
 //add the correct type of data to pokemonList array
 
 pokemonRepository.add({
@@ -69,24 +79,3 @@ pokemonRepository.add({
 });
 
 document.write('<ul class="pokemon-list">');
-
-//move the function declaration passed to forEach() to make things clearer
-function myLoopFunction(pokemon) {
-    document.write('<li class="pokemon-list__item"><b>' + pokemon.name + '</b> (height: ' + pokemon.height + ')' + "<br>" + pokemon.types);
-    if (pokemon.height > 1) {
-        document.write(" - big pokemon");
-    } else {
-        document.write(" - small pokemon");
-    }
-    document.write('</li><br>');
-};
-
-function filterType(value) {
-    const response = pokemonRepository.getAll().filter(p => p.types[0] == value)
-    console.log(response, 'type:', value);
-}
-
-//forEach Loop iterates each pokemon name and height.
-pokemonRepository.getAll().forEach(myLoopFunction);
-
-document.write('<ul>');
