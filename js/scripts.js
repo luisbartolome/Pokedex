@@ -42,7 +42,7 @@ let pokemonRepository = (function() {
 
         //pokemon names on the buttons
         let button = document.createElement('button');
-        button.innerText = pokemon.name;
+        button.innerText = pokemon.name + ' : ' + pokemon.height + ' Cm ';
         button.classList.add('button-class');
         //Event listener on click
         button.addEventListener('click', function(event) {
