@@ -25,7 +25,7 @@ let pokemonRepository = (function() {
         } else {
             document.write(" - small pokemon");
         }
-        document.write('</li></br>');
+        console.log('</li></br>');
     };
 
     //return the repository array
