@@ -21,14 +21,14 @@ let pokemonRepository = (function() {
 
         document.write('<li class="pokemon-list__item"><b>' + pokemon.name + '</br> (height: ' + pokemon.height + ')' + "<br>" + pokemon.types);
         if (pokemon.height > 1) {
-            document.write(" - big pokemon");
+            console.log(" - big pokemon");
         } else {
-            document.write(" - small pokemon");
+            console.log(" - small pokemon");
         }
         console.log('</li></br>');
     };
 
-    //return the repository array
+    //return the repository array  
     function getAll() {
         return pokemonList;
     }
@@ -71,6 +71,11 @@ let pokemonRepository = (function() {
 function filterType(value) {
     const response = pokemonRepository.getAll().filter(p => p.types[0] == value)
     console.log(response, 'type:', value);
+}
+
+function myFunction() {
+    var x = document.getElementById("pokemon.name");
+    x.value = x.value.toUpperCase();
 }
 
 //add the correct type of data to pokemonList array
