@@ -25,7 +25,7 @@ let pokemonRepository = (function() {
             "height" in pokemon &&
             "types" in pokemon
         ) {
-            repository.push(pokemon);
+            pokemonList.push(pokemon);
         } else {
             console.log("pokemon is not correct");
         }
@@ -53,7 +53,8 @@ let pokemonRepository = (function() {
         })
     };
 
-    //execute the details of clicked pokemon on console
+    //ShowDetails function
+
     function showDetails(pokemon) {
         console.log(button.innerText);
     }
