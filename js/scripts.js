@@ -58,7 +58,7 @@ let pokemonRepository = (function() {
     //ShowDetails function
 
     function showDetails(pokemon) {
-        console.log(button.innerText);
+        console.log(pokemon);
     }
 
     return {
