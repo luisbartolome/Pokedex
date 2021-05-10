@@ -58,8 +58,12 @@ let pokemonRepository = (function() {
     //ShowDetails function
 
     function showDetails(pokemon) {
-        console.log(pokemon);
-    }
+        if (pokemon.height > 1) {
+            console.log('that is a big Pokemon')
+        } else if (pokemon < 1) {
+            console.log('that is a big Pokemon')
+        }
+    };
 
     return {
         getAll: getAll,
@@ -67,7 +71,7 @@ let pokemonRepository = (function() {
         addListItem: addListItem,
     };
 
-})();
+});
 
 //add the correct type of data to pokemonList array
 
@@ -82,5 +86,4 @@ console.log(pokemonRepository.getAll());
 //forEach Loop iterates each pokemon name in a button in an unorderd list
 pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
-
 });
