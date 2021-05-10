@@ -58,10 +58,10 @@ let pokemonRepository = (function() {
     //ShowDetails function
 
     function showDetails(pokemon) {
-        if (pokemon.height > 1) {
-            console.log('that is a big Pokemon')
-        } else if (pokemon < 1) {
-            console.log('that is a big Pokemon')
+        if (pokemonList[i].height > 1) {
+            document.write(" - big pokemon");
+        } else {
+            document.write(" - small pokemon");
         }
     };
 
