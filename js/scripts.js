@@ -19,14 +19,12 @@ let pokemonRepository = (function() {
     //move the function declaration passed to forEach() to make things clearer
     function add(pokemon) {
 
-        document.write('<li class="pokemon-list__item"><b>' + pokemon.name + '</br> (height: ' + pokemon.height + ')' + "<br>" + pokemon.types);
-        if (pokemon.height > 1) {
+        if (typeof pokemon === 'object' && typeof pokemon !== null) {
             repository.push(pokemon);
         } else {
-            alert(" - small pokemon");
+            alert('type of parameter is not an object');
         }
-        console.log('</li></br>');
-    };
+    }
 
     //return the repository array  
     function getAll() {
