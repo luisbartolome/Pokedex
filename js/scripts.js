@@ -82,4 +82,5 @@ console.log(pokemonRepository.getAll());
 //forEach Loop iterates each pokemon name in a button in an unorderd list
 pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
+
 });
