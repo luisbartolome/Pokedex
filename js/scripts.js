@@ -49,24 +49,19 @@ let pokemonRepository = (function() {
         button.classList.add('button-class');
         //Event listener on click
         button.addEventListener('click', function(event) {
-            showDetails(pokemon);
-        });
-
-        //append the button and the list to their parents
-        listItem.appendChild(button);
-        pokemonList.appendChild(listItem);
-    }
+            showDetails(pokemon)
+        })
+    };
 
     //execute the details of clicked pokemon on console
     function showDetails(pokemon) {
-        console.log(pokemon);
+        console.log(button.innerText);
     }
 
     return {
         getAll: getAll,
         add: add,
         addListItem: addListItem,
-        showDetails: showDetails
     };
 
 })();
@@ -78,6 +73,8 @@ pokemonRepository.add({
     height: 0.5,
     types: ['electric']
 });
+
+console.log(pokemonRepository.getAll());
 
 //forEach Loop iterates each pokemon name in a button in an unorderd list
 pokemonRepository.getAll().forEach(function(pokemon) {
