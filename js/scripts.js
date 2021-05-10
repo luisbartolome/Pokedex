@@ -41,12 +41,14 @@ let pokemonRepository = (function() {
     function addListItem(pokemon) {
 
         let pokemonList = document.querySelector('.pokemon-list');
-        let listItem = document.createElement('li');
+        let listpokemon = document.createElement('card');
 
         //pokemon names on the buttons
         let button = document.createElement('button');
         button.innerText = pokemon.name + ' (height: ' + pokemon.height + ') ' + pokemon.types;
         button.classList.add('button-class');
+        listpokemon.appendChild(button);
+        pokemonList.appendChild(listpokemon);
         //Event listener on click
         button.addEventListener('click', function(event) {
             showDetails(pokemon)
