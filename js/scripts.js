@@ -58,12 +58,7 @@ let pokemonRepository = (function() {
     //ShowDetails function
 
     function showDetails(pokemon) {
-        if (pokemon.height > 1) {
-            console.log(pokemon.name + 'is a big Pokemon')
-        } else {
-            console.log(pokemon.name + ' is a small Pokemon')
-        }
-
+        console.log(pokemon);
     }
 
 
