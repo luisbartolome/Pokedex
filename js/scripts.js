@@ -17,12 +17,17 @@ let pokemonRepository = (function() {
     ];
 
     //move the function declaration passed to forEach() to make things clearer
-    function add(pokemon) {
 
-        if (typeof pokemon === 'object' && typeof pokemon !== null) {
+    function add(pokemon) {
+        if (
+            typeof pokemon === "object" &&
+            "name" in pokemon &&
+            "height" in pokemon &&
+            "types" in pokemon
+        ) {
             repository.push(pokemon);
         } else {
-            alert('type of parameter is not an object');
+            console.log("pokemon is not correct");
         }
     }
 
