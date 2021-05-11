@@ -24,6 +24,14 @@ let pokemonRepository = (function() {
     function addListItem(pokemon) {
         let pokemonList = document.querySelector(".pokemon-list");
         let listpokemon = document.createElement("card");
+        //create delete button on the buttons of pokemon list
+        let deleteButton = document.createElement('button');
+        deleteButton.innerText = 'X';
+        deleteButton.classList.add('delete-button');
+        //creat edit button on the buttons of pokemon list
+        let editButton = document.createElement('button');
+        editButton.innerText = 'Edit';
+        editButton.classList.add('edit-button');
         //pokemon names on the buttons
         let button = document.createElement("button");
         button.innerText = pokemon.name + " (height: " + pokemon.height + ") " + pokemon.types;
@@ -36,6 +44,11 @@ let pokemonRepository = (function() {
 
         });
     }
+    //append the buttons and the list to thier parents
+    button.appendChild(editButton);
+    button.appendChild(deleteButton);
+    listpokemon.appendChild(button);
+    pokemonList.appendChild(listpokemon);
 
     //ShowDetails function
     function showDetails(pokemon) {
@@ -56,14 +69,17 @@ let pokemonRepository = (function() {
                     detailsUrl: item.url
                 };
                 add(pokemon);
-                console.log(pokemon);
-            });
-        }).catch(function(e) {
-            console.error(e);
+            }).then(function() {
+                hideLoadingMessage();
+            }).catch(function(e) {
+                console.error(e);
+            })
+            hideLoadingMessage();
         })
-    }
+    };
 
     function loadDetails(item) {
+        showLoadingMessage();
         let url = item.detailsUrl;
         return fetch(url).then(function(response) {
             return response.json();
@@ -72,15 +88,32 @@ let pokemonRepository = (function() {
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
             item.types = details.types;
+        }).then(function() {
+            hideLoadingMessage();
         }).catch(function(e) {
             console.error(e);
         });
+        hideLoadingMessage();
     }
-    //showDetails
 
-    function showDetails(item) {
-        pokemonRepository.loadDetails(item).then(function() {
-            console.log(item);
+    //shows the loading image
+    function showLoadingMessage() {
+        loadImage = document.querySelector(".loadingImage");
+        loadImage.classList.add("showImg");
+    }
+
+    //hides the loading image
+    function hideLoadingMessage() {
+        loadImage = document.querySelector(".loadingImage");
+        loadImage.classList.remove("showImg");
+    }
+
+
+    //execute the details of clicked pokemon on console
+
+    function showDetails(pokemon) {
+        pokemonRepository.loadDetails(pokemon).then(function() {
+            console.log(pokemon);
         });
     }
 
@@ -90,23 +123,20 @@ let pokemonRepository = (function() {
         addListItem: addListItem,
         loadList: loadList,
         loadDetails: loadDetails,
-        showDetails: showDetails
+        showDetails: showDetails,
+        hideLoadingMessage: hideLoadingMessage,
     };
 })();
 
-//add the correct type of data to pokemonList array
-
-pokemonRepository.add({
-    name: "Voltorb",
-    height: 0.5,
-    types: ["electric"],
-});
-
-//console.log(pokemonRepository.getAll());
-//forEach Loop iterates each pokemon name in a button in an unorderd list
-
-pokemonRepository.loadList.then(function() {
-    pokemonRepository.getAll().forEach(function(pokemon) {
-        pokemonRepository.addListItem(pokemon)
-    });
+//Calling the loadList function of pokemonrepository
+pokemonRepository.LoadList().then(function() {
+    //shows loading image in browser
+    pokemonRepository.showLoadingMessage();
+    //timer to simulate the time it takes to load
+    setTimeout(function() {
+        pokemonRepository.getAll().forEach(function(pokemon) {
+            pokemonRepository.addListItem(pokemon);
+        })
+        pokemonRepository.hideLoadingMessage();
+    }, 2000)
 });
