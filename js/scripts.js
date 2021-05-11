@@ -36,6 +36,7 @@ let pokemonRepository = (function() {
 
         });
     }
+
     //ShowDetails function
     function showDetails(pokemon) {
         if (pokemon.height > 1) {
@@ -94,6 +95,7 @@ let pokemonRepository = (function() {
 })();
 
 //add the correct type of data to pokemonList array
+
 pokemonRepository.add({
     name: "Voltorb",
     height: 0.5,
