@@ -1,6 +1,7 @@
 let pokemonRepository = (function() {
     let pokemonList = [];
-    let apiUrl = 'htpps://pokeapi.co/api/v2/pokemon/?limit=150';
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+
 
     //move the function declaration passed to forEach() to make things clearer
     function add(pokemon) {
@@ -13,18 +14,19 @@ let pokemonRepository = (function() {
             console.log("pokemon is not correct");
         }
     }
+
     //return the repository array
     function getAll() {
         return pokemonList;
     }
+
     //creating lists and button in the DOM
     function addListItem(pokemon) {
         let pokemonList = document.querySelector(".pokemon-list");
         let listpokemon = document.createElement("card");
         //pokemon names on the buttons
         let button = document.createElement("button");
-        button.innerText =
-            pokemon.name + " (height: " + pokemon.height + ") " + pokemon.types;
+        button.innerText = pokemon.name + " (height: " + pokemon.height + ") " + pokemon.types;
         button.classList.add("button-class");
         listpokemon.appendChild(button);
         pokemonList.appendChild(listpokemon);
@@ -73,9 +75,10 @@ let pokemonRepository = (function() {
             console.error(e);
         });
     }
+    //showDetails
 
     function showDetails(item) {
-        loadDetails(item).then(function() {
+        pokemonRepository.loadDetails(item).then(function() {
             console.log(item);
         });
     }
@@ -89,6 +92,7 @@ let pokemonRepository = (function() {
         showDetails: showDetails
     };
 })();
+
 //add the correct type of data to pokemonList array
 pokemonRepository.add({
     name: "Voltorb",
