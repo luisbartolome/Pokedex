@@ -24,14 +24,6 @@ let pokemonRepository = (function() {
     function addListItem(pokemon) {
         let pokemonList = document.querySelector(".pokemon-list");
         let listpokemon = document.createElement("card");
-        //create delete button on the buttons of pokemon list
-        let deleteButton = document.createElement('button');
-        deleteButton.innerText = 'X';
-        deleteButton.classList.add('delete-button');
-        //create edit button on the buttons of pokemon list
-        let editButton = document.createElement('button');
-        editButton.innerText = 'Edit';
-        editButton.classList.add('edit-button');
         //pokemon names on the buttons
         let button = document.createElement("button");
         button.innerText = pokemon.name + " (height: " + pokemon.height + ") " + pokemon.types;
@@ -45,21 +37,13 @@ let pokemonRepository = (function() {
         });
     }
 
-    //ShowDetails function
-    function showDetails(pokemon) {
-        if (pokemon.height > 1) {
-            console.log("your Pokemon is " + pokemon.name + "and is a big Pokemon");
-        } else {
-            console.log(pokemon.name + " is a small Pokemon");
-        }
-    }
     //Promise Fetch function
 
     function loadList() {
         return fetch(apiUrl).then(function(response) {
             return response.json();
         }).then(function(json) {
-            json.result.forEach(function(item) {
+            json.results.forEach(function(item) {
                 let pokemon = {
                     name: item.name,
                     detailsUrl: item.url
@@ -74,7 +58,6 @@ let pokemonRepository = (function() {
     //loadDetails function
 
     function loadDetails(item) {
-        showLoadingMessage();
         let url = item.detailsUrl;
         return fetch(url).then(function(response) {
             return response.json();
@@ -88,12 +71,14 @@ let pokemonRepository = (function() {
         });
     }
 
-    //execute the details of clicked pokemon on console
+    //ShowDetails function
 
     function showDetails(pokemon) {
-        pokemonRepository.loadDetails(pokemon).then(function() {
-            console.log(pokemon);
-        });
+        if (pokemon.height > 1) {
+            console.log("your Pokemon is " + pokemon.name + "and is a big Pokemon");
+        } else {
+            console.log(pokemon.name + " is a small Pokemon");
+        }
     }
 
     return {
@@ -105,6 +90,8 @@ let pokemonRepository = (function() {
         showDetails: showDetails,
     };
 })();
+
+
 
 // console.log(pokemonRepository.getAll());
 
