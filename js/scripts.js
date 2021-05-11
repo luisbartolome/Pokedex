@@ -28,7 +28,7 @@ let pokemonRepository = (function() {
         let deleteButton = document.createElement('button');
         deleteButton.innerText = 'X';
         deleteButton.classList.add('delete-button');
-        //creat edit button on the buttons of pokemon list
+        //create edit button on the buttons of pokemon list
         let editButton = document.createElement('button');
         editButton.innerText = 'Edit';
         editButton.classList.add('edit-button');
@@ -44,11 +44,6 @@ let pokemonRepository = (function() {
 
         });
     }
-    //append the buttons and the list to thier parents
-    button.appendChild(editButton);
-    button.appendChild(deleteButton);
-    listpokemon.appendChild(button);
-    pokemonList.appendChild(listpokemon);
 
     //ShowDetails function
     function showDetails(pokemon) {
@@ -58,6 +53,7 @@ let pokemonRepository = (function() {
             console.log(pokemon.name + " is a small Pokemon");
         }
     }
+    //Promise Fetch function
 
     function loadList() {
         return fetch(apiUrl).then(function(response) {
@@ -69,14 +65,13 @@ let pokemonRepository = (function() {
                     detailsUrl: item.url
                 };
                 add(pokemon);
-            }).then(function() {
-                hideLoadingMessage();
-            }).catch(function(e) {
-                console.error(e);
-            })
-            hideLoadingMessage();
+                console.log(pokemon);
+            });
+        }).catch(function(e) {
+            console.error(e);
         })
-    };
+    }
+    //loadDetails function
 
     function loadDetails(item) {
         showLoadingMessage();
@@ -93,21 +88,7 @@ let pokemonRepository = (function() {
         }).catch(function(e) {
             console.error(e);
         });
-        hideLoadingMessage();
     }
-
-    //shows the loading image
-    function showLoadingMessage() {
-        loadImage = document.querySelector(".loadingImage");
-        loadImage.classList.add("showImg");
-    }
-
-    //hides the loading image
-    function hideLoadingMessage() {
-        loadImage = document.querySelector(".loadingImage");
-        loadImage.classList.remove("showImg");
-    }
-
 
     //execute the details of clicked pokemon on console
 
@@ -128,15 +109,10 @@ let pokemonRepository = (function() {
     };
 })();
 
-//Calling the loadList function of pokemonrepository
-pokemonRepository.LoadList().then(function() {
-    //shows loading image in browser
-    pokemonRepository.showLoadingMessage();
-    //timer to simulate the time it takes to load
-    setTimeout(function() {
-        pokemonRepository.getAll().forEach(function(pokemon) {
-            pokemonRepository.addListItem(pokemon);
-        })
-        pokemonRepository.hideLoadingMessage();
-    }, 2000)
+// console.log(pokemonRepository.getAll());
+
+pokemonRepository.loadList().then(function() {
+    pokemonRepository.getAll().forEach(function(pokemon) {
+        pokemonRepository.addListItem(pokemon);
+    });
 });
