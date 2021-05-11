@@ -1,27 +1,12 @@
 let pokemonRepository = (function() {
-    let pokemonList = [{
-            name: "Wartortle",
-            types: ["water"],
-            height: 3,
-        },
-        {
-            name: "Charmander",
-            types: ["fire"],
-            height: 0.9,
-        },
-        {
-            name: "Nidoran",
-            types: ["poison"],
-            height: 1,
-        },
-    ];
+    let pokemonList = [];
+    let apiUrl = 'htpps://pokeapi.co/api/v2/pokemon/?limit=150';
+
     //move the function declaration passed to forEach() to make things clearer
     function add(pokemon) {
         if (
             typeof pokemon === "object" &&
-            "name" in pokemon &&
-            "height" in pokemon &&
-            "types" in pokemon
+            "name" in pokemon
         ) {
             pokemonList.push(pokemon);
         } else {
@@ -46,6 +31,7 @@ let pokemonRepository = (function() {
         //Event listener on click
         button.addEventListener("click", function(event) {
             showDetails(pokemon);
+
         });
     }
     //ShowDetails function
@@ -56,10 +42,51 @@ let pokemonRepository = (function() {
             console.log(pokemon.name + " is a small Pokemon");
         }
     }
+
+    function loadList() {
+        return fetch(apiUrl).then(function(response) {
+            return response.json();
+        }).then(function(json) {
+            json.result.forEach(function(item) {
+                let pokemon = {
+                    name: item.name,
+                    detailsUrl: item.url
+                };
+                add(pokemon);
+                console.log(pokemon);
+            });
+        }).catch(function(e) {
+            console.error(e);
+        })
+    }
+
+    function loadDetails(item) {
+        let url = item.detailsUrl;
+        return fetch(url).then(function(response) {
+            return response.json();
+        }).then(function(details) {
+            //Now we add the details to the item
+            item.imageUrl = details.sprites.front_default;
+            item.height = details.height;
+            item.types = details.types;
+        }).catch(function(e) {
+            console.error(e);
+        });
+    }
+
+    function showDetails(item) {
+        loadDetails(item).then(function() {
+            console.log(item);
+        });
+    }
+
     return {
         getAll: getAll,
         add: add,
         addListItem: addListItem,
+        loadList: loadList,
+        loadDetails: loadDetails,
+        showDetails: showDetails
     };
 })();
 //add the correct type of data to pokemonList array
@@ -68,8 +95,12 @@ pokemonRepository.add({
     height: 0.5,
     types: ["electric"],
 });
-console.log(pokemonRepository.getAll());
+
+//console.log(pokemonRepository.getAll());
 //forEach Loop iterates each pokemon name in a button in an unorderd list
-pokemonRepository.getAll().forEach(function(pokemon) {
-    pokemonRepository.addListItem(pokemon);
+
+pokemonRepository.loadList.then(function() {
+    pokemonRepository.getAll().forEach(function(pokemon) {
+        pokemonRepository.addListItem(pokemon)
+    });
 });
