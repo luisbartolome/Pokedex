@@ -83,8 +83,6 @@ let pokemonRepository = (function() {
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
             item.types = details.types;
-        }).then(function() {
-            hideLoadingMessage();
         }).catch(function(e) {
             console.error(e);
         });
@@ -105,7 +103,6 @@ let pokemonRepository = (function() {
         loadList: loadList,
         loadDetails: loadDetails,
         showDetails: showDetails,
-        hideLoadingMessage: hideLoadingMessage,
     };
 })();
 
