@@ -22,6 +22,10 @@ ul.pokemon-list {
     max-width: 1200px;
 }
 
+.show {
+    display: block;
+}
+
 .button-class {
     background-color: #dd4040;
     /* Red */
@@ -31,7 +35,14 @@ ul.pokemon-list {
     padding: 20px;
     margin: 10px;
     text-align: center;
+    display: inline-block;
     transition-duration: 0.4s;
     cursor: pointer;
     font-size: 18px;
+}
+
+.addPokemon {
+    margin-bottom: 50px;
+    text-align: center;
+    line-height: 50px;
 }
