@@ -23,7 +23,7 @@ let pokemonRepository = (function() {
     //creating lists and button in the DOM
     function addListItem(pokemon) {
         let pokemonList = document.querySelector(".pokemon-list");
-        let listpokemon = document.createElement("id");
+        let listpokemon = document.createElement("li");
         //pokemon names on the buttons
         let button = document.createElement("button");
         button.innerText = pokemon.name;
@@ -72,9 +72,9 @@ let pokemonRepository = (function() {
 
     //showDetails
 
-    function showDetails(item) {
-        pokemonRepository.loadDetails(item).then(function() {
-            console.log(item);
+    function showDetails(pokemon) {
+        pokemonRepository.loadDetails(pokemon).then(function() {
+            console.log(pokemon);
         });
     }
 
