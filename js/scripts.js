@@ -23,10 +23,10 @@ let pokemonRepository = (function() {
     //creating lists and button in the DOM
     function addListItem(pokemon) {
         let pokemonList = document.querySelector(".pokemon-list");
-        let listpokemon = document.createElement("card");
+        let listpokemon = document.createElement("id");
         //pokemon names on the buttons
         let button = document.createElement("button");
-        button.innerText = pokemon.name + " (height: " + pokemon.height + ") " + pokemon.types;
+        button.innerText = pokemon.name;
         button.classList.add("button-class");
         listpokemon.appendChild(button);
         pokemonList.appendChild(listpokemon);
@@ -49,7 +49,6 @@ let pokemonRepository = (function() {
                     detailsUrl: item.url
                 };
                 add(pokemon);
-                console.log(pokemon);
             });
         }).catch(function(e) {
             console.error(e);
@@ -71,14 +70,12 @@ let pokemonRepository = (function() {
         });
     }
 
-    //ShowDetails function
+    //showDetails
 
-    function showDetails(pokemon) {
-        if (pokemon.height > 1) {
-            console.log("your Pokemon is " + pokemon.name + "and is a big Pokemon");
-        } else {
-            console.log(pokemon.name + " is a small Pokemon");
-        }
+    function showDetails(item) {
+        pokemonRepository.loadDetails(item).then(function() {
+            console.log(item);
+        });
     }
 
     return {
