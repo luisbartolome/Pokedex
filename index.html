@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="utf-8" />
@@ -14,10 +14,29 @@
     <header>
         <img class="page-header__item" src="img/logo.png" width="200" height="100" alt="Pokedex logo" />
     </header>
-    <main>
-        <h1>Pokedex</h1>
+    <h1>Pokedex</h1>
+    <section class="addNewPokemon">
+        <form class="addPokemon" action="index.html" method="post">
+            <label id="newPokemonLabel" for="newPokemon">Name:</label>
+            <input id="newPokemon" type="text" placeholder="Pokemon name" name="#" value="" />
+            <label id="PokemonLabelHeight" for="newPokemonHeight">Height:</label>
+            <input id="newPokemonHeight" placeholder="Pokemon height" type="text" name="#" value="" />
+
+            <button type="button" id="subButton" onclick="getPokemon()">Add</button>
+        </form>
+        <div>
+            <p id="result"></p>
+        </div>
+    </section>
+
+    <section class="pokemon-content">
         <ul class="pokemon-list"></ul>
-    </main>
+
+        <button id="show-modal">Show modal</button>
+        <div id="modal-container">
+            <div class="modal"></div>
+        </div>
+    </section>
     <footer></footer>
     <script src="js/promise-polyfill.js"></script>
     <script src="js/fetch.umd.js"></script>
