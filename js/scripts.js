@@ -153,7 +153,8 @@ let pokemonRepository = (function() {
             //Now we add the details to the item
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
-            item.types = details.types;
+            item.weight = details.weight;
+            item.type = details.types[0].type.name;
         }).catch(function(e) {
             console.error(e);
         });
