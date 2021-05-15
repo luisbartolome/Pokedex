@@ -58,8 +58,6 @@ let pokemonRepository = (function() {
 
     // Modal window function
 
-
-
     function showModal(title, text, weight, url) {
         let modalContainer = document.querySelector('#modal-container');
 
