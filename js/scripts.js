@@ -58,9 +58,7 @@ let pokemonRepository = (function() {
 
     // Modal window function
 
-    document.querySelector('#show-modal').addEventListener('click', () => {
-        showModal();
-    });
+
 
     function showModal(title, text, weight, url) {
         let modalContainer = document.querySelector('#modal-container');
@@ -175,10 +173,30 @@ let pokemonRepository = (function() {
         loadList: loadList,
         loadDetails: loadDetails,
         showDetails: showDetails,
-        showModal: showModal
+        showModal: showModal,
     };
 })();
 
+// Users input and display pokemon on screen
+
+function getPokemon() {
+    let newPokemon = document.getElementById("newPokemon").value;
+    let result = document.getElementById("result");
+    let newPokemonHeight = document.getElementById("newPokemonHeight").value;
+
+    if (newPokemonHeight !== "") {
+        newPokemon = [newPokemon + " (height: " + newPokemonHeight + ")"]
+    } else {
+        newPokemon = [newPokemon]
+    }
+
+    pokemonRepository.add(newPokemon)
+    if (newPokemonHeight > 5) {
+        result.textContent = newPokemon + "-Wow that Pokemon is HUGE!"
+    } else {
+        result.textContent = newPokemon
+    }
+}
 
 
 // console.log(pokemonRepository.getAll());
