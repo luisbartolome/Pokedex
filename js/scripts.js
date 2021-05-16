@@ -10,25 +10,19 @@ let pokemonRepository = (function() {
     }
 
     //return the repository array
+
     function getAll() {
         return pokemonList;
     }
 
-    // event listener for showDetails
+    //create and display clickable pokemon objects
 
-    function addDetailsListener(button, pokemon) {
-        button.addEventListener('click', function() {
-            showDetails(pokemon);
-        });
-    }
-
-    //creating lists and button in the DOM
     function addListItem(pokemon) {
         let pokemonList = document.querySelector(".pokemon-list");
         let listpokemon = document.createElement("li");
         listpokemon.classList.add('group-list-item');
 
-        //pokemon names on the buttons
+        //Display pokemon in button
 
         let button = document.createElement("button");
         button.innerText = pokemon.name;
@@ -38,26 +32,25 @@ let pokemonRepository = (function() {
         button.setAttribute('data-bs-target', '#modal-container');
         button.setAttribute('data-bs-toggle', 'modal');
         button.type = 'button';
+
         listpokemon.appendChild(button);
         pokemonList.appendChild(listpokemon);
 
-        //Add event listener on click
-        button.addEventListener("click", function(event) {
+        // Add event listener to button
+
+        button.addEventListener("click", function() {
 
             // showDetails(pokemon);
 
             loadDetails(pokemon).then(function() {
                 let pokemonName = pokemon.name;
-                let pokemonDesc = pokemon.height;
                 let pokemonWeight = pokemon.weight;
                 let pokemonUrl = pokemon.imageUrl;
                 let pokemonType = pokemon.type;
 
                 showModal(pokemonName, pokemonType, pokemonWeight, pokemonUrl);
             })
-
         });
-
     }
 
     // Modal window function
@@ -101,7 +94,7 @@ let pokemonRepository = (function() {
         modalContainer.appendChild(modal);
 
         modalContainer.classList.add('is-visible');
-    }
+    };
 
     // Close modal
 
@@ -119,11 +112,10 @@ let pokemonRepository = (function() {
 
     });
 
-
     function hideModal() {
         let modalContainer = document.querySelector('#modal-container');
         modalContainer.classList.remove('is-visible');
-    }
+    };
 
     //Promise Fetch function
 
@@ -143,7 +135,8 @@ let pokemonRepository = (function() {
             console.error(e);
         })
 
-    }
+    };
+
     //loadDetails function
 
     function loadDetails(item) {
@@ -161,15 +154,16 @@ let pokemonRepository = (function() {
         }).catch(function(e) {
             console.error(e);
         });
-    }
+    };
 
-    //Event listener for showDetails
+    // Event listener for showDetails
 
     function showDetails(pokemon) {
         pokemonRepository.loadDetails(pokemon).then(function() {
             showModal(pokemon);
         });
     }
+    // key variable to access the IIEF
 
     return {
         getAll: getAll,
@@ -193,7 +187,7 @@ function getPokemon() {
         newPokemon = [newPokemon + " (height: " + newPokemonHeight + ")"]
     } else {
         newPokemon = [newPokemon]
-    }
+    };
 
     pokemonRepository.add(newPokemon)
     if (newPokemonHeight > 5) {
@@ -201,9 +195,9 @@ function getPokemon() {
     } else {
         result.textContent = newPokemon
     }
-}
+};
 
-// console.log(pokemonRepository.getAll());
+// validate forms
 
 pokemonRepository.loadList().then(function() {
     pokemonRepository.getAll().forEach(function(pokemon) {
@@ -213,27 +207,25 @@ pokemonRepository.loadList().then(function() {
 
 (function() {
     let form = document.querySelector('#addPokemon');
-    let emailInput = document.querySelector('#newPokemon');
-    let passwordInput = document.querySelector('#newPokemonHeight');
 
     function validateEmail() {
 
         return false;
-    }
+    };
 
     function validatePassword() {
 
         return false;
-    }
+    };
 
     function validateForm() {
         return validateEmail() && validatePassword();
-    }
+    };
 
     form.addEventListener('add', (e) => {
         e.preventDefault(); // Do not submit to the server
         if (validateForm()) {
             alert('Success!');
         }
-    })
+    });
 })();
