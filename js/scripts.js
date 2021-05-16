@@ -6,14 +6,7 @@ let pokemonRepository = (function() {
     // Add pokemon to list
 
     function add(pokemon) {
-        if (
-            typeof pokemon === "object" &&
-            "name" in pokemon
-        ) {
-            pokemonList.push(pokemon);
-        } else {
-            console.log("pokemon is not correct");
-        }
+        pokemonList.push(pokemon);
     }
 
     //return the repository array
