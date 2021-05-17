@@ -98,18 +98,11 @@ let pokemonRepository = (function() {
 
     // Close modal
 
-    window.addEventListener('keydown', (e) => {
+    window.addEventListener('keyup', (e) => {
         let modalContainer = document.querySelector('#modal-container');
         if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
             hideModal();
         }
-        modalContainer.addEventListener('click', (e) => {
-            let target = e.target;
-            if (target === modalContainer) {
-                hideModal();
-            }
-        });
-
     });
 
     function hideModal() {
@@ -176,26 +169,6 @@ let pokemonRepository = (function() {
     };
 })();
 
-// Users input and display pokemon on screen
-
-function getPokemon() {
-    let newPokemon = document.getElementById("newPokemon").value;
-    let result = document.getElementById("result");
-    let newPokemonHeight = document.getElementById("newPokemonHeight").value;
-
-    if (newPokemonHeight !== "") {
-        newPokemon = [newPokemon + " (height: " + newPokemonHeight + ")"]
-    } else {
-        newPokemon = [newPokemon]
-    };
-
-    pokemonRepository.add(newPokemon)
-    if (newPokemonHeight > 5) {
-        result.textContent = newPokemon + "-Wow that Pokemon is HUGE!"
-    } else {
-        result.textContent = newPokemon
-    }
-};
 
 // validate forms
 
@@ -204,28 +177,3 @@ pokemonRepository.loadList().then(function() {
         pokemonRepository.addListItem(pokemon);
     });
 });
-
-(function() {
-    let form = document.querySelector('#addPokemon');
-
-    function validateEmail() {
-
-        return false;
-    };
-
-    function validatePassword() {
-
-        return false;
-    };
-
-    function validateForm() {
-        return validateEmail() && validatePassword();
-    };
-
-    form.addEventListener('add', (e) => {
-        e.preventDefault(); // Do not submit to the server
-        if (validateForm()) {
-            alert('Success!');
-        }
-    });
-})();
