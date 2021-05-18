@@ -167,3 +167,21 @@ pokemonRepository.loadList().then(function() {
         pokemonRepository.addListItem(pokemon);
     });
 });
+
+// Filter list
+function filterPokemonList(query) {
+    const list = document.querySelector('ul.pokemon-list')
+    if (!query) {
+        resetPokemonList(list)
+        return
+    }
+    const regex = new RegExp(query.replace(/[^a-zA-Z]+/g, ''), 'ig')
+
+    const results = [...list.children].filter(item => !item.innerText.match(regex)) || []
+    results.forEach(item => item.style.display = 'none')
+}
+
+// Reset list
+function resetPokemonList(list = []) {
+    [...list.children].forEach(item => item.style.display = 'block')
+}
