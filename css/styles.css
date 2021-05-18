@@ -13,12 +13,17 @@ body {
     font-size: 1 vw;
 }
 
-li {
-    list-style: none;
-    text-align: center;
+img {
+    width: 35%;
+    height: auto;
+}
+
+ul {
+    list-style-type: none;
 }
 
 .button-class {
+    font-family: 'Press Start 2P', cursive;
     background-color: #dd4040;
     border-radius: 20px;
     box-shadow: 0 3px 15px rgb(255, 0, 0);
@@ -91,14 +96,18 @@ label {
 
 #pokemon-list li {
     list-style: none;
-    padding: 10px;
+    padding: 5px;
     margin: 5px 0;
     border: 1px solid #e4e4e4;
+    align-content: center;
 }
 
 .searchNewPokemon {
     background-color: #dfd332;
     border-radius: 10px;
+    margin-bottom: 50px;
+    text-align: center;
+    line-height: 50px;
 }
 
 #subButton {
@@ -111,7 +120,7 @@ label {
     background-color: #396BBA;
     color: #fff;
     border-radius: 10px;
-    width: 10%;
+    width: 20%;
     font-family: inherit;
     display: inline;
     font-size: 9px;
@@ -119,7 +128,7 @@ label {
 
 #subButton:hover {
     background-color: #296CDB;
-    color: #f2c005;
+    color: #2c2c2a;
 }
 
 #subButton:focus {
@@ -133,18 +142,6 @@ label {
     background-color: #0039A8;
 }
 
-.searchPokemon {
-    margin-bottom: 50px;
-    text-align: center;
-    line-height: 50px;
-}
-
-.page-footer {
-    margin: 0 auto;
-    padding: 1rem;
-    text-align: center;
-}
-
 #modal-container {
     position: fixed;
     padding: 20px;
@@ -153,14 +150,13 @@ label {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
     /* to show it above other content */
     z-index: 999;
     /* to allow scrolling if the screen is not high enough*/
     overflow: auto;
     /* this is used to center the modal */
     display: grid;
-    text-align: center;
 }
 
 .modal {
@@ -171,7 +167,9 @@ label {
     padding: 15px;
     width: 100%;
     max-width: 700px;
-    text-align: left;
+    border-style: solid;
+    border-color: #9b1f16;
+    border-width: 50px;
 }
 
 .modal-close {
@@ -185,6 +183,7 @@ label {
 
 .modal-title h1 {
     margin-top: 0;
+    font-style: oblique;
 }
 
 .modal p {
@@ -211,14 +210,12 @@ label {
     /* this is used to center the modal */
     display: grid;
     text-align: center;
+    align-content: center;
 }
 
-.modal h2 {
-    margin-top: 0;
-    clear: both;
-    text-transform: capitalize;
-}
 
-.modal p {
-    margin-bottom: 0;
-}
+/*.pokemon-content{
+  background-color:red;
+  width:50%;
+  align:center;
+  } */
