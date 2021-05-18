@@ -16,11 +16,13 @@
     </header>
     <h1>Pokedex</h1>
     <section class="searchNewPokemon">
-        <form class="searchPokemon" action="index.html" method="post">
-            <input type="text" placeholder="Search pokemon" id="filter_pokemon" />
-            <button type="button" id="subButton" onclick="pokemonList()">
-          Search
-        </button>
+        <form class="searchPokemon" action="index.html" method="post" onsubmit="return false">
+            <input type="text" placeholder="Search pokemon" id="filter_pokemon"
+                onkeyup="filterPokemonList(this.value)" />
+            <button type="button" id="subButton"
+                onclick="filterPokemonList(document.getElementById('filter_pokemon').value)">
+                Search
+            </button>
         </form>
     </section>
     <ul class="pokemon-list"></ul>
