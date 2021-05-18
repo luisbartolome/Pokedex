@@ -20,15 +20,12 @@ let pokemonRepository = (function() {
     function addListItem(pokemon) {
         let pokemonList = document.querySelector(".pokemon-list");
         let listpokemon = document.createElement("li");
-        listpokemon.classList.add('group-list-item');
 
         //Display pokemon in button
 
         let button = document.createElement("button");
         button.innerText = pokemon.name;
         button.classList.add("button-class");
-        button.classList.add('btn');
-        button.classList.add('col');
         button.setAttribute('data-bs-target', '#modal-container');
         button.setAttribute('data-bs-toggle', 'modal');
         button.type = 'button';
@@ -40,16 +37,8 @@ let pokemonRepository = (function() {
 
         button.addEventListener("click", function() {
 
-            // showDetails(pokemon);
+            showDetails(pokemon);
 
-            loadDetails(pokemon).then(function() {
-                let pokemonName = pokemon.name;
-                let pokemonWeight = pokemon.weight;
-                let pokemonUrl = pokemon.imageUrl;
-                let pokemonType = pokemon.type;
-
-                showModal(pokemonName, pokemonType, pokemonWeight, pokemonUrl);
-            })
         });
     }
 
@@ -57,6 +46,7 @@ let pokemonRepository = (function() {
 
     function showModal(title, text, weight, url) {
         let modalContainer = document.querySelector('#modal-container');
+
 
         // Clear all existing modal content
 
@@ -112,11 +102,11 @@ let pokemonRepository = (function() {
 
     //Promise Fetch function
 
-    function loadList() {
+    async function loadList() {
 
-        return fetch(apiUrl).then(function(response) {
-            return response.json();
-        }).then(function(json) {
+        try {
+            const response = await fetch(apiUrl);
+            const json = await response.json();
             json.results.forEach(function(item) {
                 let pokemon = {
                     name: item.name,
@@ -124,29 +114,28 @@ let pokemonRepository = (function() {
                 };
                 add(pokemon);
             });
-        }).catch(function(e) {
+        } catch (e) {
             console.error(e);
-        })
+        }
 
     };
 
     //loadDetails function
 
-    function loadDetails(item) {
+    async function loadDetails(item) {
 
         let url = item.detailsUrl;
-        return fetch(url).then(function(response) {
-            return response.json();
-        }).then(function(details) {
-
+        try {
+            const response = await fetch(url);
+            const details = await response.json();
             //Now we add the details to the item
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
             item.weight = details.weight;
             item.type = details.types[0].type.name;
-        }).catch(function(e) {
+        } catch (e) {
             console.error(e);
-        });
+        }
     };
 
     // Event listener for showDetails
@@ -156,6 +145,7 @@ let pokemonRepository = (function() {
             showModal(pokemon);
         });
     }
+
     // key variable to access the IIEF
 
     return {
