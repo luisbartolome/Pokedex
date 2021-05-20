@@ -4,27 +4,30 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
     <title>Simple JS App</title>
     <!--The logo that will be displayed in the tab bar/bookmark-->
     <link rel="shortcut icon" href="img/favicon.png" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
 </head>
 
 <body>
-    <header>
+    <header class="text-center">
         <img class="page-header__item" src="img/logo.png" width="200" height="100" alt="Pokedex logo" />
+        <h1>Pokedex</h1>
     </header>
-    <h1>Pokedex</h1>
     <section class="searchNewPokemon">
         <form class="searchPokemon" action="index.html" method="post" onsubmit="return false">
             <input type="text" placeholder="Search pokemon" id="filter_pokemon" />
-            <button type="button" id="subButton" onclick="filterPokemonList(document.getElementById('filter_pokemon').value)">
+            <!-- <button type="button" id="subButton" onclick="filterPokemonList(document.getElementById('filter_pokemon').value)">
           Search
+        </button> -->
+            <button type="button" class="btn btn-primary" onclick="filterPokemonList(document.getElementById('filter_pokemon').value)">
+          search
         </button>
         </form>
     </section>
-    <ul class="pokemon-list"></ul>
+    <ul class="pokemon-list list-group text-center"></ul>
     <section class="pokemon-content">
         <div id="modal-container">
             <div class="modal"></div>
