@@ -10,7 +10,6 @@ let pokemonRepository = (function() {
     }
 
     //return the repository array
-
     function getAll() {
         return pokemonList;
     }
@@ -20,9 +19,9 @@ let pokemonRepository = (function() {
     function addListItem(pokemon) {
         let pokemonList = document.querySelector(".pokemon-list");
         let listpokemon = document.createElement("li");
+        listpokemon.classList.add('group-list-item')
 
         //Display pokemon in button
-
         let button = document.createElement("button");
         button.innerText = pokemon.name;
         button.classList.add("button-class");
