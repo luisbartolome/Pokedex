@@ -13,15 +13,12 @@
 
 <body>
     <img class="navbar-brand-light" src="img/logo.png" alt="Pokedex logo" />
-
     <div class="searchNewPokemon">
         <form class="searchPokemon" action="index.html" method="post" onsubmit="return false">
             <input type="text" placeholder="Search pokemon" id="filter_pokemon" />
-            <!-- <button type="button" id="subButton" onclick="filterPokemonList(document.getElementById('filter_pokemon').value)">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
           Search
-        </button> -->
-            <button type="button" class="btn btn-primary" onclick="filterPokemonList(document.getElementById('filter_pokemon').value)">
-          search
         </button>
         </form>
     </div>
