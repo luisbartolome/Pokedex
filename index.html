@@ -13,20 +13,20 @@
 
 <body>
     <img class="navbar-brand-light" src="img/logo.png" alt="Pokedex logo" />
-    <div class="searchNewPokemon">
-        <div class="searchPokemon" action="index.html" method="post" onsubmit="return false">
-            <input type="text" placeholder="Search pokemon" id="filter_pokemon" />
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#navbarNav" aria->
+    <nav class="navbar navbar-light bg-light" style="background-color: yellow">
+        <a class="navbar-brand"></a>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
           Search
         </button>
-        </div>
-    </div>
+        </form>
+    </nav>
     <ul class="pokemon-list list-group text-center"></ul>
     <div class="pokemon-content">
         <div id="modal-container"></div>
     </div>
-    <footer class="bg-light text-center text-lg-start">
+    <footer class="bg-light text-center text-lg-start" style="background-color: rgb(160, 165, 151)">
         <div class="footer-copyright text-center py-3">
             © 2021 Copyright:
             <a class="text-decoration-none" href="https://github.com/luisbartolome" target="_blank">Luis Bartolome</a
