@@ -12,21 +12,26 @@
 </head>
 
 <body>
-    <img class="navbar-brand-light" src="img/logo.png" alt="Pokedex logo" />
-    <nav class="navbar navbar-light bg-light" style="background-color: yellow">
-        <a class="navbar-brand"></a>
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search
-        </button>
-        </form>
-    </nav>
-    <ul class="pokemon-list list-group text-center"></ul>
-    <div class="pokemon-content">
-        <div id="modal-container"></div>
-    </div>
-    <footer class="bg-light text-center text-lg-start" style="background-color: rgb(160, 165, 151)">
+    <main>
+        <img class="w-20 m-auto d-block logo" src="img/logo.png" alt="Pokedex logo" />
+        <div class="bg-dark w-50 mx-auto mt-5" style="border-radius: 10px">
+            <form class="w-100 p-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input class="form-control mr-2 w-100 filter" type="search" placeholder="Search" aria-label="Search" id="filter_pokemon" onkeyup="filterPokemonList(this.value)" />
+                    </div>
+                    <button class="btn btn-outline-success my-2 my-sm-0 col-md-2" type="submit">
+              Search
+            </button>
+                </div>
+            </form>
+        </div>
+        <ul class="pokemon-list list-group text-center mt-4"></ul>
+        <div class="pokemon-content">
+            <div id="modal-container"></div>
+        </div>
+    </main>
+    <footer class="bg-dark text-center text-lg-start w-100 mt-5">
         <div class="footer-copyright text-center py-3">
             © 2021 Copyright:
             <a class="text-decoration-none" href="https://github.com/luisbartolome" target="_blank">Luis Bartolome</a
