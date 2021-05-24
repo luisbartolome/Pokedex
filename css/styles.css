@@ -1,6 +1,8 @@
 *,
 *:before,
 *:after {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -17,9 +19,16 @@ body {
     font-size: 1 vw;
 }
 
+main {
+    min-height: 100vh;
+    /*importante*/
+    position: relative;
+    /*importante*/
+}
+
 img {
     width: 50%;
-    height: auto;
+    /* height: auto; */
 }
 
 ul {
@@ -82,10 +91,6 @@ input[type=text] {
 
 label {
     font-size: 10px;
-}
-
- ::placeholder {
-    font-size: 8px;
 }
 
 #filter_pokemon {
@@ -156,7 +161,7 @@ form.form-inline {
 #modal-container {
     position: fixed;
     padding: 20px;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     top: 0;
     left: 0;
     width: 100%;
@@ -168,6 +173,17 @@ form.form-inline {
     overflow: auto;
     /* this is used to center the modal */
     display: grid;
+}
+
+@media only screen and (min-width: 500px) {
+    .h1 {
+        width: 100%;
+        max-width: 400px;
+        max-height: 400px;
+        display: block;
+        margin: 25px;
+        margin: auto;
+    }
 }
 
 .modal {
@@ -189,8 +205,8 @@ form.form-inline {
 }
 
 .modal-close {
-    float: right;
-    -webkit-appearance: none;
+    margin-left: auto;
+    display: block;
     border: 0;
     background: none;
     color: #777;
@@ -202,9 +218,8 @@ form.form-inline {
     margin: 0 auto;
 }
 
-.modal p {
-    margin-top: 0;
-    margin-bottom: 0;
+.modal>p:nth-child(3) {
+    margin-top: 20px;
 }
 
 #pokemonImage {
