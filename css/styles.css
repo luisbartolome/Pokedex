@@ -168,5 +168,7 @@ form.form-inline {
 
 a,
 a:link {
-    color: rgb(2, 2, 117);
+    outline: none;
+    text-decoration: none;
+    color: rgb(2, 2, 117)
 }
