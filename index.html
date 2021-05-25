@@ -20,7 +20,7 @@
                     <div class="col-md-6">
                         <input class="form-control mr-2 w-100 filter" type="search" placeholder="Search" aria-label="Search" id="filter_pokemon" onkeyup="filterPokemonList(this.value)" />
                     </div>
-                    <button class="btn btn-outline-success my-2 my-sm-0 col-md-2" type="submit">
+                    <button class="btn btn-outline-success my-2 my-sm-0 col-md-2" type="submit" style="color: #25f725">
               Search
             </button>
                 </div>
@@ -30,8 +30,23 @@
         <div class="pokemon-content">
             <div id="modal-container"></div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="buttonModal btn btn-primary" type="button" data-dismiss="modal">
+                Close
+              </button>
+                    </div>
+                    <div class="modal-body"></div>
+                    <div class="modal-footer"></div>
+                </div>
+            </div>
+        </div>
     </main>
-    <footer class="bg-dark text-center text-lg-start w-100 mt-5">
+    <footer class="text-center text-lg-start w-100 mt-5" style="background-color: #fc4c20">
         <div class="footer-copyright text-center py-3">
             © 2021 Copyright:
             <a class="text-decoration-none" href="https://github.com/luisbartolome" target="_blank">Luis Bartolome</a
