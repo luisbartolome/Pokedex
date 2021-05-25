@@ -25,8 +25,8 @@ let pokemonRepository = (function() {
         let button = document.createElement("button");
         button.innerText = pokemon.name;
         button.classList.add("button-class");
-        button.setAttribute('data-bs-target', '#modal-container');
-        button.setAttribute('data-bs-toggle', 'modal');
+        button.setAttribute('data-target', '#exampleModalCenter');
+        button.setAttribute('data-toggle', 'modal');
         button.type = 'button';
 
         listpokemon.appendChild(button);
@@ -45,7 +45,7 @@ let pokemonRepository = (function() {
 
     function showModal({ name: title, type: text, weight, imageUrl: url }) {
 
-        let modalContainer = document.querySelector('#modal-container');
+        let modalContainer = document.querySelector('.modal-body');
 
 
         // Clear all existing modal content
@@ -53,14 +53,8 @@ let pokemonRepository = (function() {
         modalContainer.innerHTML = '';
 
         let modal = document.createElement('div');
-        modal.classList.add('modal');
+        modal.classList.add('example');
 
-        // Add the new modal content
-
-        let closeButtonElement = document.createElement('button');
-        closeButtonElement.classList.add('modal-close');
-        closeButtonElement.innerText = 'Close';
-        closeButtonElement.addEventListener('click', hideModal);
 
         let titleElement = document.createElement('h1');
         titleElement.innerText = title;
@@ -74,16 +68,14 @@ let pokemonRepository = (function() {
         modalImage.src = url;
         modalImage.setAttribute("id", "pokemonImage");
 
-
-
-        modal.appendChild(closeButtonElement);
+        // modal.appendChild(closeButtonElement);
         modal.appendChild(titleElement);
         modal.appendChild(contentElement);
         modal.appendChild(pokemonWeight);
         modal.appendChild(modalImage);
         modalContainer.appendChild(modal);
 
-        modalContainer.classList.add('is-visible');
+        // modalContainer.classList.add('is-visible');
     };
 
     // Close modal
