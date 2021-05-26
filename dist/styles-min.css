@@ -1,0 +1,186 @@
+*,
+:after,
+:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+html {
+    height: 100%
+}
+
+body {
+    background-color: #9b3535;
+    color: #0c0c0c;
+    font-family: Roboto, sans-serif;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 1 vw
+}
+
+main {
+    min-height: 100vh;
+    position: relative
+}
+
+img {
+    width: 50%
+}
+
+.example {
+    font-size: 25px
+}
+
+#pokemonImage {
+    transition: all 2s
+}
+
+#pokemonImage:hover {
+    transform: scale(1.3);
+    transition: all 2s
+}
+
+ul {
+    list-style-type: none
+}
+
+.button-class {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #c80000;
+    border-radius: 20px;
+    box-shadow: 0 3px 15px red;
+    color: #d6e0e0;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    text-align: center;
+    transition-duration: .4s;
+    cursor: pointer;
+    font-size: 18px;
+    width: 250px;
+    height: 50px;
+    justify-content: space-evenly;
+    align-items: center;
+    text-transform: capitalize
+}
+
+.button-class:hover {
+    background-color: #296cdb;
+    color: #fff
+}
+
+.button-class:focus {
+    background-color: #0f52c1;
+    outline: 0
+}
+
+.button-class:active {
+    background-color: #0039a8
+}
+
+.addPokemon {
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 50px
+}
+
+input[type=text] {
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, .06);
+    border-radius: 10px;
+    border: 0;
+    border-bottom: 1px solid #296cdb;
+    font-family: inherit;
+    width: 150px;
+    height: 20px;
+    font-size: 8px
+}
+
+label {
+    font-size: 10px
+}
+
+#filter_pokemon {
+    width: 20%;
+    padding: 10px
+}
+
+#pokemon-list {
+    margin: 0;
+    padding: 0
+}
+
+#pokemon-list li {
+    list-style: none;
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid #d3d31b;
+    align-content: center
+}
+
+.form-inline {
+    align-content: center;
+    list-style: none
+}
+
+.navbar {
+    align-content: center;
+    border-radius: 20px
+}
+
+form.form-inline {
+    align-content: center;
+    margin: 0 auto
+}
+
+#subButton {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 10px;
+    border: none;
+    background-color: #396bba;
+    color: #fff;
+    border-radius: 10px;
+    width: 20%;
+    font-family: inherit;
+    display: inline;
+    font-size: 9px
+}
+
+#subButton:hover {
+    background-color: #296cdb;
+    color: #2c2c2a
+}
+
+#subButton:focus {
+    background-color: #0f52c1;
+    outline: 0
+}
+
+#subButton:active {
+    background-color: #0039a8
+}
+
+.buttonModal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #898994;
+    border-radius: 10px
+}
+
+.modal-header {
+    border: none
+}
+
+a,
+a:link {
+    outline: 0;
+    text-decoration: none;
+    color: #020275
+}
+
+.example {
+    Border: 1px red
+}
